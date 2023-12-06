@@ -5,12 +5,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Seeds {
 
     public ArrayList<String> lines;
     public int columnLength, lineLength;
+    public ArrayList<String> seeds;
 
     public Seeds(String path) {
         this.lines = new ArrayList<>();
@@ -32,6 +34,11 @@ public class Seeds {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void storeSeeds() {
+        String lineOne = lines.get(0).split(": +")[1];
+        seeds = new ArrayList<>(Arrays.asList(lineOne.split(" +")));
     }
 
     public void getResult() {
