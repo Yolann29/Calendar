@@ -1,3 +1,4 @@
+import Days.Cards;
 import Days.Cubes;
 import Days.Engine;
 
@@ -9,6 +10,7 @@ public class Main {
 //        Cubes cubes = new Cubes("/Doc/Games");
 //
 //        cubes.sumPossibleGames();
-        Engine engine = new Engine("/Doc/Engine");
+//        Engine engine = new Engine("/Doc/Engine");
+        Cards cards = new Cards("/Doc/Cards");
     }
 }
