@@ -12,7 +12,7 @@ public class Main {
 //
 //        cubes.sumPossibleGames();
 //        Engine engine = new Engine("/Doc/Engine");
-//        Cards cards = new Cards("/Doc/Cards");
-        Races races = new Races();
+        Cards cards = new Cards("/Doc/Cards");
+//        Races races = new Races();
     }
 }
