@@ -1,6 +1,7 @@
 import Days.Cards;
 import Days.Cubes;
 import Days.Engine;
+import Days.Races;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,6 +12,7 @@ public class Main {
 //
 //        cubes.sumPossibleGames();
 //        Engine engine = new Engine("/Doc/Engine");
-        Cards cards = new Cards("/Doc/Cards");
+//        Cards cards = new Cards("/Doc/Cards");
+        Races races = new Races();
     }
 }
