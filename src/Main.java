@@ -11,6 +11,6 @@ public class Main {
 //        Engine engine = new Engine("/Doc/Engine");
 //        Cards cards = new Cards("/Doc/Cards");
 //        Races races = new Races();
-        Seeds seeds = new Seeds("/Doc/Test");
+        Seeds seeds = new Seeds("/Doc/Seeds");
     }
 }
