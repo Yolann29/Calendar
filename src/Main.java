@@ -12,5 +12,6 @@ public class Main {
 //        Cards cards = new Cards("/Doc/Cards");
 //        Races races = new Races();
         Seeds seeds = new Seeds("/Doc/Seeds");
+//        Camel camel = new Camel("/Doc/Camel");
     }
 }

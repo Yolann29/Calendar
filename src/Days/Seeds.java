@@ -55,8 +55,8 @@ public class Seeds {
 //        System.out.println(lines);
     }
 
-    public long getLocation(String seed, String range) {
-        long value = Long.parseLong(seed);
+    public long getSeed(Long location, String range) {
+        long value = location;
         long rangeValue = Long.parseLong(range);
         long minlocation = 0;
         for (long i = value; i < value + rangeValue; i++) {
@@ -116,12 +116,14 @@ public class Seeds {
 
     public void getResult() {
         long minlocation = 0;
-        for (int i = 0; i < seeds.size(); i = i + 2) {
-//            System.out.println(":::::::::::::::::Seed:::::::::::::::::");
-            long location = getLocation(seeds.get(i), seeds.get(i+1));
-            if (minlocation == 0) minlocation = location;
-            if (minlocation > location) minlocation = location;
-        }
+        while (getLocation())
+//        for (int i = 0; i < seeds.size(); i = i + 2) {
+////            System.out.println(":::::::::::::::::Seed:::::::::::::::::");
+//            long location = getLocation(seeds.get(i), seeds.get(i+1));
+//            if (minlocation == 0) minlocation = location;
+//            if (minlocation > location) minlocation = location;
+//        }
+        minlocation = getLocation(seeds.get(0), seeds.get(1));
         System.out.println(minlocation);
     }
 }
