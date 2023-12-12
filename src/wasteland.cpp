@@ -10,10 +10,10 @@ using namespace std;
 //Declared Functions
 bool goRight(const string&, int);
 vector<int> getRelations(const vector<string>&);
-long getResult(const string&, const vector<int>&, const vector<string>&);
+long getResult(const vector<string>&, const string&, const vector<int>&, const vector<string>&);
 
 int main() {
-    string file("Doc/Wasteland.txt");
+    string file("Doc/Test2");
     vector<string> lines;
     vector<string> letters;
 
@@ -49,7 +49,8 @@ int main() {
     }
 
     vector<int> relations = getRelations(letters);
-    cout << "Result: " << getResult(instructions, relations, letters) << endl;
+    cout << instructions << endl;
+    cout << "Result: " << getResult(lines, instructions, relations, letters) << endl;
 
     return 0;
 }
@@ -74,7 +75,7 @@ vector<int> getRelations(const vector<string>& letters) {
 }
 
 bool goRight(const string& instructions, long long turn) {
-    turn = turn - (turn / instructions.length())* instructions.length();
+    // turn = turn - (turn / instructions.length())* instructions.length();
     // cout << "Index: " << turn << endl;
     if (instructions.at(turn) == 'R') {
         return true;
@@ -82,7 +83,7 @@ bool goRight(const string& instructions, long long turn) {
     return false;
 }
 
-long getResult(const string& instructions, const vector<int>& relations, const vector<string>& letters) {
+long getResult(const vector<string>& lines, const string& instructions, const vector<int>& relations, const vector<string>& letters) {
     int index = 0;
     int line = 0;
     long long sum = 0;
@@ -91,10 +92,17 @@ long getResult(const string& instructions, const vector<int>& relations, const v
     }
     cout << "Instructions: " << instructions.length() << endl;
     while (letters.at(line * 3) != "ZZZ") {
-        index = goRight(instructions, sum) + 1;
+        long long turn = sum - (sum / instructions.length()) * instructions.length();
+        cout << "Turn: " << turn << endl;
+        index = goRight(instructions, turn) + 1;
+        cout << "Instruction: " << instructions.at(turn) << endl;
+        cout << "Sum: " << sum << endl;
+        cout << "Line: " << lines.at(line) << endl;
+        cout << "Index: " << index << endl;
+        cout << "Letters: " << letters.at(line*3 + index) << endl;
         line = relations.at(line * 3 + index);
         sum++;
-        if (sum % 10000000 == 0) cout << sum << endl;
+        if (sum == instructions.length() - 100) return 0;
     }
     cout << "Sum: " << sum << endl;
     cout << "Last change: " << line << " " << letters.at(line*3) << endl;
