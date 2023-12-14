@@ -51,16 +51,16 @@ int main() {
     while (symbol != 'S') {
         switch (direction) {
             case 'u':
-                indexRow = indexRow + 1;
+                indexRow += 1;
                 break;
             case 'd':
-                indexRow = indexRow - 1;
+                indexRow -= 1;
                 break;
             case 'l':
                 indexCol += 1;
                 break;
             case 'r':
-                indexCol = indexCol - 1;
+                indexCol -= 1;
         }
         symbol = lines.at(indexRow).at(indexCol);
         direction = getDirection(symbol, direction);
@@ -73,6 +73,11 @@ int main() {
 
     cout << count << endl;
     cout << count / 2 << endl;
+
+}
+
+void fillZeros() {
+    zeros[indexRow][indexCol] = lines.at(indexRow).at(indexCol);
 
 }
 
@@ -124,7 +129,7 @@ char getPipeBehindS() {
         symbols.remove('F');
         symbols.remove('7');
     }
-    
+
 
     return symbols.front();
 }
@@ -132,6 +137,7 @@ char getPipeBehindS() {
 char getDirection(char symbol, char direction) {
     switch(symbol) {
         case '|':
+        if (zeros.at(indexRow))
             switch (direction) {
                 case 'u':
                     return 'u';
